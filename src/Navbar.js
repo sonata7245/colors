@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom/cjs/react-router-dom';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import './Navbar.css'
-import { Icon } from '@material-ui/core';
 
 
 
