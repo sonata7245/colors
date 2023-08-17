@@ -3,7 +3,6 @@ import { Button} from "@material-ui/core";
 import { ChromePicker } from "react-color";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import { withStyles } from "@material-ui/core/styles";
-import { CallMissedSharp } from '@material-ui/icons';
 
 
 const styles = {
