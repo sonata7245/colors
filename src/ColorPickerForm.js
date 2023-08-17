@@ -2,7 +2,27 @@ import React, { Component } from 'react'
 import { Button} from "@material-ui/core";
 import { ChromePicker } from "react-color";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
+import { withStyles } from "@material-ui/core/styles";
+import { CallMissedSharp } from '@material-ui/icons';
 
+
+const styles = {
+	root: {},
+	picker: {
+		width: "100% !important",
+		marginTop: "2rem"
+	},
+	addColor: {
+		width: "100%",
+		padding: "1rem",
+		marginTop: "1rem",
+		fontSize: "2rem"
+	},
+	colorName: {
+		width: "100%",
+		height: "70px",
+	}
+}
 
 class ColorPickerForm extends Component{
     constructor(props){
@@ -41,14 +61,18 @@ class ColorPickerForm extends Component{
 
     render(){
         const {currentColor, newColorName} = this.state
-        const {colors, maxColors} = this.props
+        const {colors, maxColors, classes} = this.props
         return(
-            <div>
-                <ChromePicker color={currentColor} onChangeComplete={this.updateCurrentColor} />
+            <div className={classes.root}>
+                <ChromePicker className={classes.picker} color={currentColor} onChangeComplete={this.updateCurrentColor} />
 					<ValidatorForm onSubmit={this.handleSubmit}>
 						<TextValidator
 							value={newColorName}
+							className={classes.colorName}
+							placeholder='Color Name'
 							name="newColorName"
+							variant="filled"
+							margin="normal"
 							onChange={this.handleChange}
 							validators={["required", "isColorNameUnique", "isColorUnique"]}
 							errorMessages={["Enter a Color Name", "Name Already Taken", "Color Already Added"]}
@@ -58,7 +82,8 @@ class ColorPickerForm extends Component{
 							color="primary"
 							style={{ backgroundColor: currentColor }}
 							type="submit"
-							disabled={colors.length >= maxColors}>
+							disabled={colors.length >= maxColors}
+							className={classes.addColor}>
 							Add Color
 						</Button>
 					</ValidatorForm>
@@ -68,4 +93,4 @@ class ColorPickerForm extends Component{
     }
 }
 
-export default ColorPickerForm
+export default withStyles(styles)(ColorPickerForm)
