@@ -1,3 +1,5 @@
+import down from './sizes'
+
 const styles = {
     palette:{
         height: "100vh",
@@ -37,7 +39,19 @@ const styles = {
         border: "none",
         cursor: "pointer",
         textDecoration: "none",
-        }
+        },
+        [down("lg")]:{
+            width: "25%",
+            height: "33.333%"
+        },
+        [down("md")]:{
+            width: "50%",
+            height: "20%"
+        },
+        [down("xs")]:{
+            width: "100%",
+            height: "10%"
+        },
     }
     
 

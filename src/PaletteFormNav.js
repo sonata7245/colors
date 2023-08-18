@@ -11,6 +11,7 @@ import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import PaletteMetaForm from "./PaletteMetaForm";
 import styles from './styles/PaletteFormNavStyles'
+import { AddToPhotos } from "@material-ui/icons";
 
 class PaletteFormNav extends Component {
 	constructor(props) {
@@ -56,8 +57,10 @@ class PaletteFormNav extends Component {
 							color="inherit"
 							aria-label="Open drawer"
 							onClick={this.props.handleDrawerOpen}
-							className={classNames(classes.menuButton, open && classes.hide)}>
-							<MenuIcon />
+							className={classNames(classes.menuButton, {
+								[classes.hide]: open
+								})}>
+							<AddToPhotos />
 						</IconButton>
 						<Typography variant="h6" color="inherit" noWrap>
 							Create a Palette

@@ -22,7 +22,7 @@ class Home extends Component{
                     </nav>
                     <div className={classes.palettes}>
                         {palettes.map(palette => (
-                        <MiniPalette {...palette} handleClick={() => this.goToPalette(palette.id)}/>
+                        <MiniPalette {...palette} deletePalette={this.props.deletePalette} handleClick={() => this.goToPalette(palette.id)} key={palette.id} id={palette.id}/>
                         ))}
                     </div>
                 </div>
