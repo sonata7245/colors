@@ -1,16 +1,22 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import MiniPalette from './MiniPalette'
 import withStyles from '@material-ui/styles/withStyles';
 import styles from './styles/PaletteListStyles'
 import { Link } from 'react-router-dom/cjs/react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
 
 
-class Home extends Component{
+class Home extends PureComponent{
+    constructor(props){
+        super(props);
+        this.goToPalette = this.goToPalette.bind(this)
+    }
 
     goToPalette(id){
         this.props.history.push(`/palette/${id}`)
     }
+
     render(){
         const {palettes, classes} = this.props
         return(
@@ -22,7 +28,9 @@ class Home extends Component{
                     </nav>
                     <div className={classes.palettes}>
                         {palettes.map(palette => (
-                        <MiniPalette {...palette} deletePalette={this.props.deletePalette} handleClick={() => this.goToPalette(palette.id)} key={palette.id} id={palette.id}/>
+                        <CSSTransition classNames="fade" key={palette.id} timeout={500}>
+                        <MiniPalette {...palette} deletePalette={this.props.deletePalette} handleClick={this.goToPalette} key={palette.id} id={palette.id}/>
+                        </CSSTransition>
                         ))}
                     </div>
                 </div>

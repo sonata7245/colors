@@ -1,7 +1,18 @@
 import down from './sizes'
 import bg from  './bg.svg'
 
+
 const styles = {
+    "@global" :{
+        ".fade-exit":{
+            opacity: 1,
+            color: "purple"
+        },
+        ".fade-exit-active":{
+            opacity: 0,
+            transition: "opacity 200ms"
+        },
+    },
     root: {
         backgroundColor: "#020D36",
         backgroundImage: `url(${bg})`,

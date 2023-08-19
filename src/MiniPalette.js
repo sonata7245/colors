@@ -17,9 +17,9 @@ class MiniPalette extends Component{
 
     
     render(){
-        const {classes, paletteName, emoji, colors, handleClick} = this.props;
+        const {classes, paletteName, emoji, colors, handleClick, id} = this.props;
         return(
-            <div className={classes.root} onClick={handleClick}>
+            <div className={classes.root} onClick={() => handleClick(id)}>
            
                 <DeleteIcon className={classes.deleteIcon} style={{transition: "all .3s ease-in-out"}} onClick={this.deletePalette}/>
 
