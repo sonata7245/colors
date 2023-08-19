@@ -1,3 +1,5 @@
+import down from './sizes'
+
 const styles = {
     slider: {
         width: "340px",
@@ -18,7 +20,11 @@ const styles = {
         },
         "& .rc-slider-track": {
             backgroundColor: "transparent"
+        },
+        [down("md")] : {
+            width: "150px"
         }
+    
     },
     navbar: {
         display: "flex",
@@ -39,6 +45,9 @@ const styles = {
         "& a": {
             textDecoration: "none",
             color: "black",
+        },
+        [down("xs")] : {
+            display: "none"
         }
     
     },
